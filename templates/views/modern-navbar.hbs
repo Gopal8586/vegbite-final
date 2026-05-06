@@ -1,0 +1,199 @@
+<!-- Modern Responsive Navbar -->
+<nav class="navbar">
+  <div class="navbar-container container">
+    <!-- Logo -->
+    <a href="/vegbite" class="navbar-logo">
+      <img src="/Images/Home/logo.png" alt="VegBites" onerror="this.style.display='none'">
+      <span class="logo-text">VegBites</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <div class="desktop-nav">
+      <ul class="navbar-menu">
+        <li class="nav-item">
+          <a href="/vegbite" class="nav-link active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/html/menu.html" class="nav-link">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a href="/html/About.html" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="/html/Contact.html" class="nav-link">Contact</a>
+        </li>
+      </ul>
+
+      <!-- Navbar Actions -->
+      <div class="navbar-actions">
+        <a href="/html/cart2.html" class="navbar-cart">
+          <i class="fas fa-shopping-cart cart-icon"></i>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+        <a href="/html/login.html" class="navbar-login">Login</a>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+<!-- Mobile Menu Panel -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-header">
+    <a href="/vegbite" class="mobile-menu-logo">
+      <img src="/Images/Home/logo.png" alt="VegBites" onerror="this.style.display='none'">
+      <span>VegBites</span>
+    </a>
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <div class="mobile-menu-content">
+    <!-- Priority Login Button -->
+    <a href="/html/login.html" class="mobile-menu-login">
+      <i class="fas fa-user"></i>
+      Login / Sign Up
+    </a>
+
+    <!-- Mobile Navigation -->
+    <ul class="mobile-menu-nav">
+      <li class="nav-item">
+        <a href="/vegbite" class="nav-link">
+          <i class="fas fa-home"></i>
+          Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/html/menu.html" class="nav-link">
+          <i class="fas fa-utensils"></i>
+          Menu
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/html/About.html" class="nav-link">
+          <i class="fas fa-info-circle"></i>
+          About Us
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/html/Contact.html" class="nav-link">
+          <i class="fas fa-phone"></i>
+          Contact
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Mobile Menu Footer -->
+  <div class="mobile-menu-footer">
+    <a href="/html/cart2.html" class="mobile-menu-cart">
+      <div class="cart-info">
+        <i class="fas fa-shopping-cart"></i>
+        <span>View Cart</span>
+        <span class="cart-count" id="mobile-cart-count">0</span>
+      </div>
+      <i class="fas fa-chevron-right"></i>
+    </a>
+  </div>
+</div>
+
+<script>
+// Mobile Menu Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  // Toggle mobile menu
+  function openMobileMenu() {
+    mobileMenu.classList.add('active');
+    mobileMenuOverlay.classList.add('active');
+    mobileMenuBtn.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('active');
+    mobileMenuOverlay.classList.remove('active');
+    mobileMenuBtn.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  
+  // Event listeners
+  mobileMenuBtn.addEventListener('click', openMobileMenu);
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+  mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+  
+  // Close menu on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeMobileMenu();
+    }
+  });
+  
+  // Update cart count
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const count = cart.reduce((total, item) => total + item.quantity, 0);
+    
+    const cartCountElements = document.querySelectorAll('.cart-count');
+    cartCountElements.forEach(element => {
+      element.textContent = count;
+      element.style.display = count > 0 ? 'block' : 'none';
+    });
+  }
+  
+  // Update cart count on page load
+  updateCartCount();
+  
+  // Listen for cart changes
+  window.addEventListener('storage', function(e) {
+    if (e.key === 'cart') {
+      updateCartCount();
+    }
+  });
+  
+  // Update active nav link based on current page
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('.navbar-menu .nav-link, .mobile-menu-nav .nav-link');
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === currentPath || 
+        (currentPath === '/' && link.getAttribute('href') === '/vegbite')) {
+      link.classList.add('active');
+    }
+  });
+  
+  // Navbar scroll effect
+  let lastScrollTop = 0;
+  const navbar = document.querySelector('.navbar');
+  
+  window.addEventListener('scroll', function() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+      // Scrolling down
+      navbar.style.transform = 'translateY(-100%)';
+    } else {
+      // Scrolling up
+      navbar.style.transform = 'translateY(0)';
+    }
+    
+    lastScrollTop = scrollTop;
+  });
+});
+</script>

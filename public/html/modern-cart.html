@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - VegBites</title>
+    <meta name="description" content="Review and manage your shopping cart. Fresh vegetarian food delivered to your doorstep.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/modern-responsive.css">
+    <link rel="stylesheet" href="/css/modern-navbar.css">
+    <link rel="stylesheet" href="/css/modern-cart.css">
+</head>
+<body>
+    <!-- Modern Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <!-- Logo -->
+            <a href="/vegbite" class="navbar-logo">
+                <img src="/Images/Home/logo.png" alt="VegBites" onerror="this.style.display='none'">
+                <span class="logo-text">VegBites</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav">
+                <ul class="navbar-menu">
+                    <li class="nav-item">
+                        <a href="/vegbite" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/html/menu.html" class="nav-link">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/html/About.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/html/Contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+
+                <!-- Navbar Actions -->
+                <div class="navbar-actions">
+                    <a href="/html/cart2.html" class="navbar-cart">
+                        <i class="fas fa-shopping-cart cart-icon"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </a>
+                    <a href="/html/login.html" class="navbar-login">Login</a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="/vegbite" class="mobile-menu-logo">
+                <img src="/Images/Home/logo.png" alt="VegBites" onerror="this.style.display='none'">
+                <span>VegBites</span>
+            </a>
+            <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="mobile-menu-content">
+            <!-- Priority Login Button -->
+            <a href="/html/login.html" class="mobile-menu-login">
+                <i class="fas fa-user"></i>
+                Login / Sign Up
+            </a>
+
+            <!-- Mobile Navigation -->
+            <ul class="mobile-menu-nav">
+                <li class="nav-item">
+                    <a href="/vegbite" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/html/menu.html" class="nav-link">
+                        <i class="fas fa-utensils"></i>
+                        Menu
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/html/About.html" class="nav-link">
+                        <i class="fas fa-info-circle"></i>
+                        About Us
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/html/Contact.html" class="nav-link">
+                        <i class="fas fa-phone"></i>
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Mobile Menu Footer -->
+        <div class="mobile-menu-footer">
+            <a href="/html/cart2.html" class="mobile-menu-cart">
+                <div class="cart-info">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>View Cart</span>
+                    <span class="cart-count" id="mobile-cart-count">0</span>
+                </div>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Cart Page -->
+    <main class="cart-page">
+        <!-- Cart Header -->
+        <header class="cart-header">
+            <div class="cart-header-content">
+                <h1 class="cart-title">
+                    <i class="fas fa-shopping-cart"></i>
+                    Shopping Cart
+                </h1>
+                <a href="/html/menu.html" class="back-to-menu">
+                    <i class="fas fa-arrow-left"></i>
+                    Continue Shopping
+                </a>
+            </div>
+        </header>
+
+        <!-- Cart Content -->
+        <div class="container">
+            <div class="cart-content">
+                <!-- Cart Items Section -->
+                <section class="cart-items-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-utensils"></i>
+                        Your Items
+                    </h2>
+                    <div class="cart-items" id="cart-items">
+                        <!-- Cart items will be loaded dynamically -->
+                    </div>
+                </section>
+
+                <!-- Order Summary -->
+                <aside class="order-summary">
+                    <h2 class="summary-title">Order Summary</h2>
+                    
+                    <div class="summary-row">
+                        <span class="summary-label">Subtotal</span>
+                        <span class="summary-value" id="subtotal">₹0</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span class="summary-label">Delivery Fee</span>
+                        <span class="summary-value" id="delivery-fee">₹40</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span class="summary-label">Tax</span>
+                        <span class="summary-value" id="tax">₹0</span>
+                    </div>
+                    
+                    <div class="summary-divider"></div>
+                    
+                    <div class="summary-row">
+                        <span class="summary-label">Total</span>
+                        <span class="summary-value total" id="total">₹0</span>
+                    </div>
+
+                    <!-- Promo Code Section -->
+                    <div class="promo-section">
+                        <div class="promo-input-group">
+                            <input type="text" class="promo-input" id="promo-input" placeholder="Enter promo code">
+                            <button class="apply-promo-btn" id="apply-promo" onclick="applyPromoCode()">
+                                Apply
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Checkout Button -->
+                    <button class="checkout-btn" id="checkout-btn" onclick="proceedToCheckout()" disabled>
+                        <i class="fas fa-credit-card"></i>
+                        Proceed to Checkout
+                    </button>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Continue Shopping -->
+        <div class="continue-shopping">
+            <a href="/html/menu.html">
+                <i class="fas fa-arrow-left"></i>
+                Continue Shopping
+            </a>
+        </div>
+    </main>
+
+    <script>
+        // Cart State
+        let cart = [];
+        let promoCode = '';
+        let discount = 0;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize mobile menu
+            initializeMobileMenu();
+            
+            // Load cart from localStorage
+            loadCart();
+            
+            // Update cart count in navbar
+            updateCartCount();
+        });
+
+        // Initialize Mobile Menu
+        function initializeMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            function openMobileMenu() {
+                mobileMenu.classList.add('active');
+                mobileMenuOverlay.classList.add('active');
+                mobileMenuBtn.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeMobileMenu();
+                }
+            });
+        }
+
+        // Load Cart
+        function loadCart() {
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+            }
+            renderCart();
+            updateSummary();
+        }
+
+        // Render Cart Items
+        function renderCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <div class="empty-cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>Your cart is empty</h3>
+                        <p>Looks like you haven't added any delicious items yet!</p>
+                        <a href="/html/menu.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-utensils"></i>
+                            Browse Menu
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+            
+            cartItemsContainer.innerHTML = cart.map(item => `
+                <div class="cart-item" data-id="${item.id}">
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-image" onerror="this.src='/Images/Home/placeholder-food.jpg'">
+                    <div class="cart-item-details">
+                        <div class="cart-item-header">
+                            <h3 class="cart-item-name">${item.name}</h3>
+                            <div class="cart-item-price">₹${item.price}</div>
+                        </div>
+                        <div class="cart-item-controls">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)" ${item.quantity <= 1 ? 'disabled' : ''}>
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <span class="quantity-value">${item.quantity}</span>
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <button class="remove-item" onclick="removeItem(${item.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Update Quantity
+        function updateQuantity(itemId, change) {
+            const item = cart.find(item => item.id === itemId);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeItem(itemId);
+                    return;
+                }
+                saveCart();
+                renderCart();
+                updateSummary();
+                updateCartCount();
+            }
+        }
+
+        // Remove Item
+        function removeItem(itemId) {
+            cart = cart.filter(item => item.id !== itemId);
+            saveCart();
+            renderCart();
+            updateSummary();
+            updateCartCount();
+            showToast('Item removed from cart');
+        }
+
+        // Save Cart
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Update Summary
+        function updateSummary() {
+            const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            const deliveryFee = cart.length > 0 ? 40 : 0;
+            const tax = Math.round(subtotal * 0.05); // 5% tax
+            const total = subtotal + deliveryFee + tax - discount;
+            
+            document.getElementById('subtotal').textContent = `₹${subtotal}`;
+            document.getElementById('delivery-fee').textContent = `₹${deliveryFee}`;
+            document.getElementById('tax').textContent = `₹${tax}`;
+            document.getElementById('total').textContent = `₹${total}`;
+            
+            // Enable/disable checkout button
+            const checkoutBtn = document.getElementById('checkout-btn');
+            checkoutBtn.disabled = cart.length === 0;
+        }
+
+        // Update Cart Count
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            const cartCountElements = document.querySelectorAll('.cart-count');
+            cartCountElements.forEach(element => {
+                element.textContent = count;
+                element.style.display = count > 0 ? 'block' : 'none';
+            });
+        }
+
+        // Apply Promo Code
+        function applyPromoCode() {
+            const promoInput = document.getElementById('promo-input');
+            const code = promoInput.value.trim().toUpperCase();
+            
+            if (!code) {
+                showToast('Please enter a promo code');
+                return;
+            }
+            
+            // Simple promo codes (in real app, this would be validated on server)
+            const promoCodes = {
+                'SAVE10': 10,
+                'SAVE20': 20,
+                'FIRST50': 50
+            };
+            
+            if (promoCodes[code]) {
+                discount = promoCodes[code];
+                promoCode = code;
+                promoInput.disabled = true;
+                document.getElementById('apply-promo').textContent = 'Applied';
+                document.getElementById('apply-promo').disabled = true;
+                updateSummary();
+                showToast(`Promo code ${code} applied! You saved ₹${discount}`);
+            } else {
+                showToast('Invalid promo code');
+            }
+        }
+
+        // Proceed to Checkout
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                showToast('Your cart is empty');
+                return;
+            }
+            
+            // Save order data for checkout page
+            const orderData = {
+                items: cart,
+                subtotal: document.getElementById('subtotal').textContent,
+                deliveryFee: document.getElementById('delivery-fee').textContent,
+                tax: document.getElementById('tax').textContent,
+                total: document.getElementById('total').textContent,
+                promoCode: promoCode,
+                discount: discount
+            };
+            
+            localStorage.setItem('orderData', JSON.stringify(orderData));
+            
+            // Redirect to checkout page
+            window.location.href = '/html/checkout.html';
+        }
+
+        // Show Toast
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type} show`;
+            toast.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+
+        // Listen for cart changes
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'cart') {
+                loadCart();
+                updateCartCount();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+/* Modern VegBites Footer - Card Style 
+   Clean fresh green design for food website
+   Colors: #4caf50 main, #1b5e20 dark green
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+/* Main Footer Container */
+.vegbites-footer {
+  position: relative;
+  padding: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.footer-card {
+  width: 100%;
+  margin: 0;
+  padding: 80px 100px 40px; /* Spacing Fix (Point 7) */
+  background: linear-gradient(135deg, #1b5e20 0%, #0f3d2e 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🎯 2. Fix Footer Grid Alignment */
+.footer-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1.2fr;
+  gap: 60px;
+}
+
+/* 🎯 3. Improve Typography Hierarchy */
+.footer-card h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.footer-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.footer-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-card a {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* 🎯 4. Fix Social Icons (PREMIUM) */
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.social-icons i {
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.social-icons i:hover {
+  background: #f97316;
+  transform: scale(1.15);
+  cursor: pointer;
+}
+
+/* 🎯 5. Fix Newsletter (Single component) */
+.newsletter-section h3 {
+  margin-top: 0;
+}
+
+.newsletter {
+  display: flex;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.newsletter input {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  outline: none;
+}
+
+.newsletter input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter button {
+  background: #f97316;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.newsletter button:hover {
+  background: #ea580c;
+}
+
+/* 🎯 6. Add Footer Bottom Bar */
+.footer-bottom {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #9ca3af;
+  align-items: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* 🎯 8. Small UI Polish */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 14px;
+}
+
+.footer-links li a:hover {
+  color: #f97316;
+  padding-left: 4px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.contact-item i {
+  color: #4CAF50;
+  width: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .footer-card {
+    padding: 60px 40px;
+  }
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-box {
+    flex-direction: column;
+    padding: 30px;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .cta-btn {
+    justify-content: center;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+}
+

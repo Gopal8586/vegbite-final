@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password | VegBites</title>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <style>
+        /* Exact SAME SaaS baseline as login.hbs */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0fdf4;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Abstract Particles */
+        .particles { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: 1; }
+        .particle { position: absolute; font-size: 2rem; opacity: 0.15; animation: float 15s infinite linear; }
+        .p1 { top: 10%; left: 10%; animation-duration: 25s; filter: blur(2px); }
+        .p2 { top: 20%; right: 15%; animation-duration: 20s; font-size: 3rem; }
+        .p3 { bottom: 15%; left: 20%; animation-duration: 18s; font-size: 1.5rem; }
+        .p4 { bottom: 25%; right: 10%; animation-duration: 22s; filter: blur(3px); }
+        .p5 { top: 50%; left: 5%; animation-duration: 30s; font-size: 2.5rem; }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-100px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        .bg-circle-1 { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(34,197,94,0.1) 0%, rgba(255,255,255,0) 70%); top: -200px; right: -200px; z-index: 1; }
+        .bg-circle-2 { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, rgba(255,255,255,0) 70%); bottom: -150px; left: -150px; z-index: 1; }
+
+        .login-wrapper {
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+            height: 600px;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+        }
+
+        .split-left {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(34,197,94,0.9), rgba(16,185,129,0.95)), url('https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .split-left::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 500; margin-bottom: 24px; width: fit-content; z-index: 2; border: 1px solid rgba(255,255,255,0.3); }
+        .content { z-index: 2; }
+        .content h1 { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; line-height: 1.1; margin-bottom: 16px; }
+        .content p { font-size: 16px; font-weight: 300; opacity: 0.9; max-width: 300px; line-height: 1.5; }
+
+        .split-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            position: relative;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            z-index: 10;
+        }
+
+        .heading { text-align: center; margin-bottom: 24px; }
+        .heading h2 { color: #111827; font-size: 28px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .heading span { color: #6B7280; font-size: 14px; font-weight: 400; display: block; }
+        
+        .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px;}
+        .form-label { font-size: 13px; font-weight: 500; color: #374151; }
+        .input-group { position: relative; width: 100%; }
+        
+        .input-group input {
+            width: 100%;
+            height: 48px;
+            padding: 12px 14px;
+            border: 1px solid #E5E7EB;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #111827;
+            outline: none;
+            transition: all 0.2s ease;
+            background: #F9FAFB;
+        }
+
+        .input-group input:focus { border-color: #22C55E; box-shadow: 0 0 0 3px rgba(34,197,94,0.2); background: #ffffff; }
+        .input-group input::placeholder { color: #9CA3AF; font-weight: 400; }
+
+        .error-message { font-size: 12px; color: #ef4444; display: none; align-items: center; gap: 5px; margin-top: 4px; }
+        .success-message { font-size: 13px; color: #10b981; display: none; align-items: center; gap: 5px; margin-top: 4px; text-align: center; font-weight: 500;}
+
+        .btn-login {
+            background: linear-gradient(135deg, #22C55E, #16A34A);
+            color: #ffffff;
+            height: 50px;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-login:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(34,197,94,0.3); }
+
+        .spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #ffffff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .btn-login.loading .spinner { display: block; }
+        .btn-login.loading .btn-text { display: none; }
+
+        .back-link {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #6B7280;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .back-link a:hover {
+            color: #22C55E;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            body { padding: 20px; }
+            .login-wrapper { flex-direction: column; height: auto; max-height: none; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); }
+            .split-left { display: none; }
+            .split-right { padding: 40px 20px; border-radius: 20px; background: transparent; border: none; }
+            .login-box { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles">
+        <div class="particle p1">🍔</div>
+        <div class="particle p2">🥗</div>
+        <div class="particle p3">🍕</div>
+        <div class="particle p4">🍟</div>
+        <div class="particle p5">🍩</div>
+    </div>
+    
+    <div class="login-wrapper">
+        <div class="split-left">
+            <div class="badge"><i class="fas fa-lock" style="color:#ffffff;"></i> Secure Recovery</div>
+            <div class="content">
+                <h1>Lost access?</h1>
+                <p>Don't worry, we'll get you back to your favorite meals in no time.</p>
+            </div>
+        </div>
+
+        <div class="split-right">
+            <div class="login-box">
+                <!-- FORM 1: EMAIL PHASE -->
+                <form id="emailForm">
+                    <div class="heading">
+                        <h2>Reset Password</h2>
+                        <span>Enter your registered email address</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email address</label>
+                        <div class="input-group">
+                            <input id="emailInput" type="email" placeholder="name@example.com" required>
+                        </div>
+                        <div class="error-message" id="emailError"><i class="fas fa-exclamation-circle"></i> Account not found</div>
+                    </div>
+
+                    <button type="submit" class="btn-login" id="sendOtpBtn">
+                        <span class="btn-text">Send Recovery OTP</span>
+                        <div class="spinner"></div>
+                    </button>
+                    
+                    <div class="back-link">
+                        <a href="/login"><i class="fas fa-arrow-left"></i> Back to Login</a>
+                    </div>
+                </form>
+
+                <!-- FORM 2: OTP PHASE -->
+                <form id="otpForm" style="display: none;">
+                    <div class="heading">
+                        <h2>Check your inbox</h2>
+                        <span>We sent a 6-digit code to your email</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Enter 6-digit OTP</label>
+                        <div class="input-group">
+                            <input id="otpInput" type="text" placeholder="------" required maxlength="6" style="text-align: center; font-size: 24px; letter-spacing: 10px;">
+                        </div>
+                        <div class="error-message" id="otpError"><i class="fas fa-exclamation-circle"></i> Invalid OTP</div>
+                    </div>
+
+                    <button type="submit" class="btn-login" id="verifyOtpBtn">
+                        <span class="btn-text">Verify Code</span>
+                        <div class="spinner"></div>
+                    </button>
+                </form>
+
+                <!-- FORM 3: NEW PASSWORD PHASE -->
+                <form id="passwordForm" style="display: none;">
+                    <div class="heading">
+                        <h2>Create new password</h2>
+                        <span>Make it strong and memorable</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">New Password</label>
+                        <div class="input-group">
+                            <input id="newPassword" type="password" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Confirm Password</label>
+                        <div class="input-group">
+                            <input id="confirmPassword" type="password" placeholder="••••••••" required>
+                        </div>
+                        <div class="error-message" id="passwordError"><i class="fas fa-exclamation-circle"></i> Passwords do not match</div>
+                    </div>
+
+                    <button type="submit" class="btn-login" id="resetBtn">
+                        <span class="btn-text">Update Password</span>
+                        <div class="spinner"></div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const emailForm = document.getElementById('emailForm');
+        const otpForm = document.getElementById('otpForm');
+        const passwordForm = document.getElementById('passwordForm');
+        
+        let storedEmail = '';
+
+        // Step 1: Request OTP
+        emailForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('sendOtpBtn');
+            const email = document.getElementById('emailInput').value;
+            const err = document.getElementById('emailError');
+            
+            btn.classList.add('loading');
+            err.style.display = 'none';
+            
+            try {
+                const res = await fetch('/api/forgot/send-otp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                const data = await res.json();
+                
+                if (data.success) {
+                    storedEmail = email;
+                    emailForm.style.display = 'none';
+                    otpForm.style.display = 'block';
+                } else {
+                    err.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${data.message}`;
+                    err.style.display = 'flex';
+                }
+            } catch (error) {
+                err.innerHTML = '<i class="fas fa-exclamation-circle"></i> Connection Error';
+                err.style.display = 'flex';
+            }
+            btn.classList.remove('loading');
+        });
+
+        // Step 2: Verify OTP
+        otpForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('verifyOtpBtn');
+            const otp = document.getElementById('otpInput').value;
+            const err = document.getElementById('otpError');
+            
+            btn.classList.add('loading');
+            err.style.display = 'none';
+            
+            try {
+                const res = await fetch('/api/forgot/verify-otp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: storedEmail, otp })
+                });
+                const data = await res.json();
+                
+                if (data.success) {
+                    otpForm.style.display = 'none';
+                    passwordForm.style.display = 'block';
+                } else {
+                    err.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${data.message}`;
+                    err.style.display = 'flex';
+                }
+            } catch (error) {
+                err.innerHTML = '<i class="fas fa-exclamation-circle"></i> Connection Error';
+                err.style.display = 'flex';
+            }
+            btn.classList.remove('loading');
+        });
+
+        // Step 3: Reset Password
+        passwordForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('resetBtn');
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const err = document.getElementById('passwordError');
+            
+            if (newPassword !== confirmPassword) {
+                err.style.display = 'flex';
+                return;
+            }
+            err.style.display = 'none';
+            btn.classList.add('loading');
+            
+            try {
+                const res = await fetch('/api/forgot/reset-password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: storedEmail, newPassword })
+                });
+                const data = await res.json();
+                
+                if (data.success) {
+                    btn.innerHTML = '<span class="btn-text">Password Updated! 🎉</span>';
+                    setTimeout(() => {
+                        window.location.href = '/login';
+                    }, 1000);
+                } else {
+                    err.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${data.message}`;
+                    err.style.display = 'flex';
+                    btn.classList.remove('loading');
+                }
+            } catch (error) {
+                err.innerHTML = '<i class="fas fa-exclamation-circle"></i> Connection Error';
+                err.style.display = 'flex';
+                btn.classList.remove('loading');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Vegbites</title>
+    <!-- Linking Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <!-- Linking Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Using styles from homepage to match exactly -->
+    <link rel="stylesheet" href="/css/Vegbites2.css">
+    <link rel="stylesheet" href="/css/Responsive.css">
+    <link rel="stylesheet" href="/css/bot.css">
+    <link rel="stylesheet" href="/css/modern-vegbites-footer.css">
+    <!-- Aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Home Page Styles -->
+    <link rel="stylesheet" href="/css/HomePageStyles.css">
+    <!-- Specific About Page Styles -->
+    <link rel="stylesheet" href="/css/About.css">
+
+    <!-- Anti-Flicker Script -->
+    <script>if(localStorage.getItem('vb_user_name')) document.documentElement.className += ' hide-login';</script>
+  </head>
+  <body>
+
+    <!-- Bot Shivnai -->
+    <div id="chat-icon" onclick="toggleChat()">
+      <span id="chat-icon-text" style="color: white; font-size: 24px;">🤖</span> <!-- Updated icon text -->
+    </div>
+
+    <div id="chat-container">
+      <div id="header">
+          <h3 style="margin: 0;">Shivnai Tripathi</h3>
+          <div id="language">
+              <img id="language-icon" src="/Images/Home/languages.png" onclick="toggleLanguageSelector()" />
+              <select id="language-selector" onchange="changeLanguage()">
+                  <option value="en">🇬🇧 English</option>
+                  <option value="hi">🇮🇳 हिन्दी</option>
+                  <option value="es">🇪🇸 Español</option>
+              </select>
+          </div>
+      </div>
+
+      <div id="chat-box"></div>
+      <input type="text" id="user-input" onkeypress="checkEnter(event)" placeholder="Type your message...">
+      <button id="send-button" onclick="sendMessage()">Send</button>
+    </div>
+    <!-- Bot end -->
+
+    <!-- Header / Navbar -->
+    <header>
+      <nav class="navbar">
+        <a href="/" class="nav-logo" style="text-decoration: none;">
+          <h2 class="logo-text"> Vegbites</h2>
+        </a>
+
+        <ul class="nav-menu">
+          <button id="menu-close-button" class="fas fa-times"></button>
+
+          <li class="nav-item">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="/html/About.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="/html/menu.html" class="nav-link">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a href="/html/Contact.html" class="nav-link">Contact</a>
+          </li>
+        </ul>
+
+        <a href="/login" style="text-decoration: none;"><button class="login-btn">LOG IN</button></a>
+        <button id="menu-open-button" class="fas fa-bars"></button>
+      </nav>
+          <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          let currentPath = window.location.pathname;
+          // Small fix for dynamic routing variations
+          if (currentPath === '' || currentPath === ' ') currentPath = '/';
+          
+          document.querySelectorAll('.nav-menu .nav-link').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPath || (currentPath === '/' && href === '/')) {
+              link.classList.add('active');
+            }
+          });
+        });
+      </script>
+    </header>
+
+    <main>
+      <!-- About Hero Section -->
+      <section class="about-hero-section">
+        <div class="section-content">
+          <div class="hero-details" data-aos="fade-right">
+            <h2 class="title">About Us</h2>
+            <p class="description">
+              At VegBite, enjoy delicious, fresh, plant-based meals crafted for vegans, vegetarians, and health enthusiasts alike!
+            </p>
+            <div class="buttons">
+              <a href="/html/menu.html" class="button order-now">Shop Now</a>
+              <a href="/" class="button contact-us">Explore</a>
+            </div>
+          </div>
+          <div class="hero-image-wrapper" data-aos="zoom-out-down">
+            <img src="/Images/About/Abot_hero.png" alt="About VegBites" class="hero-image" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us -->
+      <section class="why-choose-section" id="why-choose">
+        <div class="section-content">
+          <div class="why-choose-details" data-aos="fade-up">
+            <h2 class="section-title">Why Choose Us</h2>
+            <p class="text">
+              Choose us for a vibrant, plant-based dining experience where fresh, locally sourced ingredients meet delicious flavors. At VegBite, we prioritize health, sustainability, and taste, ensuring every dish is crafted with quality and a passion for wellness.
+            </p>
+
+            <div class="features-grid">
+              <div class="feature">
+                <div class="icon">
+                  <img src="/Images/SVG/truck.svg" alt="Fast & Free Shipping" />
+                </div>
+                <h3>Fast & Free Shipping</h3>
+                <p>Enjoy fast, free shipping on every order, ensuring your products arrive quickly and at no extra cost!</p>
+              </div>
+
+              <div class="feature">
+                <div class="icon">
+                  <img src="/Images/SVG/bag.svg" alt="Easy to Shop" />
+                </div>
+                <h3>Easy to Shop</h3>
+                <p>Effortless shopping with user-friendly navigation, quick checkout, and helpful support for a smooth experience.</p>
+              </div>
+
+              <div class="feature">
+                <div class="icon">
+                  <img src="/Images/SVG/support.svg" alt="24/7 Support" />
+                </div>
+                <h3>24/7 Support</h3>
+                <p>Get assistance anytime with our 24/7 support, ready to help whenever you need it.</p>
+              </div>
+
+              <div class="feature">
+                <div class="icon">
+                  <img src="/Images/SVG/return.svg" alt="Hassle Free Returns" />
+                </div>
+                <h3>Hassle Free Returns</h3>
+                <p>Enjoy stress-free returns with our simple, quick, and convenient process for a seamless shopping experience.</p>
+              </div>
+            </div>
+          </div>
+          <div class="why-choose-image-wrapper" data-aos="fade-left">
+            <img src="/Images/About/Why choose us.png" alt="Why Choose Us" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Team Section -->
+      <section class="team-section">
+        <h2 class="section-title" data-aos="fade-up">Our Team</h2>
+        <div class="section-content">
+          <div class="team-grid">
+            <!-- Member 1 -->
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="0">
+              <div class="team-img-wrapper">
+                <img src="/Images/About/People/Testimonial 1.jpg" alt="Gopal Tiwari" />
+              </div>
+              <h3>Gopal Tiwari</h3>
+              <p class="position">CEO, Founder, Creator & Developer.</p>
+              <p>Gopal Tiwari, VegBites' founder, developed its website with user-friendly features and a smart assistant bot.</p>
+            </div>
+            
+            <!-- Member 2 -->
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+              <div class="team-img-wrapper">
+                <img src="/Images/About/People/Testimonial 5.jpg" alt="Shivani Tripathi" />
+              </div>
+              <h3>Shivani Tripathi</h3>
+              <p class="position">CEO, Owner & Corporator.</p>
+              <p>Shivani Tripathi, co-owner of VegBites, is instrumental in sourcing and curating high-quality images for the website.</p>
+            </div>
+
+            <!-- Member 3 -->
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="200">
+              <div class="team-img-wrapper">
+                <img src="/Images/About/People/Testimonial 5.jpg" alt="Siddharth Sharma" />
+              </div>
+              <h3>Siddharth Sharma</h3>
+              <p class="position">Co-Founder & Image Editor.</p>
+              <p>Siddharth, co-founder and image editor at VegBites, ensures high-quality visuals for the website.</p>
+            </div>
+
+            <!-- Member 4 -->
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="300">
+              <div class="team-img-wrapper">
+                <img src="/Images/About/People/Testimonial 5.jpg" alt="Mohit Mathur" />
+              </div>
+              <h3>Mohit Mathur</h3>
+              <p class="position">Co-Founder & Bot Creator.</p>
+              <p>Mohit Mathur developed the smart assistant bot, enhancing customer interactions by providing quick responses.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials section -->
+      <section class="testimonials-section" id="testimonials" style="background-color: var(--bg-light, #fdfdfd);">
+        <h2 class="section-title" style="text-align: center;">Testimonials</h2>
+        <div class="section-content">
+          <div class="slider-container swiper">
+            <div class="slider-wrapper">
+              <ul class="testimonials-list swiper-wrapper">
+                <li class="testimonial swiper-slide">
+                  <img src="/Images/About/People/Testimonial 2.jpg" alt="Aditi Sharma" class="user-image" />
+                  <h3 class="name">Aditi Sharma</h3>
+                  <i class="feedback">"VegBites is my favorite restaurant! The food is consistently fresh, flavorful, and beautifully presented. The website makes ordering a delight..."</i>
+                </li>
+                <li class="testimonial swiper-slide">
+                  <img src="/Images/About/People/Testimonial 3.jpg" alt="Rajiv Mehta" class="user-image" />
+                  <h3 class="name">Rajiv Mehta</h3>
+                  <i class="feedback">"I can’t say enough good things about VegBites! The variety of dishes available is impressive, and the quality is always top-notch..."</i>
+                </li>
+                <li class="testimonial swiper-slide">
+                  <img src="/Images/About/People/Testimonial 4.jpg" alt="Priya Singh" class="user-image" />
+                  <h3 class="name">Priya Singh</h3>
+                  <i class="feedback">"VegBites has become my go-to for delicious vegetarian meals! The online ordering process is seamless, thanks to their smart assistant bot..."</i>
+                </li>
+              </ul>
+
+              <div class="swiper-pagination"></div>
+              <div class="swiper-slide-button swiper-button-prev"></div>
+              <div class="swiper-slide-button swiper-button-next"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- New Modern VegBites Card Footer -->
+      <footer class="vegbites-footer">
+          <div class="footer-card">
+
+
+              <!-- 🎯 2. Fix Footer Grid Alignment -->
+              <div class="footer-container">
+                  <!-- Column 1: Logo + Description + Social -->
+                  <div class="footer-column">
+                      <h2 class="footer-logo">VegBites</h2>
+                      <p>Fresh, delicious vegetarian food delivered to your door. Quality ingredients, authentic flavors for healthy living.</p>
+                      <div class="social-icons">
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-youtube"></i></a>
+                      </div>
+                  </div>
+
+                  <!-- Column 2: Quick Links -->
+                  <div class="footer-column">
+                      <h3>Quick Links</h3>
+                      <ul class="footer-links">
+                          <li><a href="/">Home</a></li>
+                          <li><a href="/html/menu.html">Menu</a></li>
+                          <li><a href="/html/cart2.html">Cart</a></li>
+                          <li><a href="#">Order Status</a></li>
+                          <li><a href="#">Blog</a></li>
+                      </ul>
+                  </div>
+
+                  <!-- Column 3: About Us -->
+                  <div class="footer-column">
+                      <h3>About Us</h3>
+                      <ul class="footer-links">
+                          <li><a href="/html/About.html">Our Story</a></li>
+                          <li><a href="#">Team</a></li>
+                          <li><a href="#">Values</a></li>
+                          <li><a href="#">Customer Support</a></li>
+                          <li><a href="#">FAQ</a></li>
+                      </ul>
+                  </div>
+
+                  <!-- Column 4: Contact + Newsletter -->
+                  <div class="footer-column">
+                      <h3>Contact</h3>
+                      <div class="contact-item">
+                          <i class="fas fa-map-marker-alt"></i>
+                          <span>232 G Tilak Nagar, Allahabad</span>
+                      </div>
+                      <div class="contact-item">
+                          <i class="fas fa-phone"></i>
+                          <span>+91 9336312716</span>
+                      </div>
+                      <div class="contact-item">
+                          <i class="fas fa-envelope"></i>
+                          <span>shivitripathi@gmail.com</span>
+                      </div>
+
+                      <div class="newsletter-section">
+                          <h3 style="margin-top: 1.5rem;">Newsletter</h3>
+                          <div class="newsletter">
+                              <input type="email" placeholder="Enter your email">
+                              <button>Subscribe</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- 🎯 6. Add Footer Bottom Bar -->
+              <div class="footer-bottom">
+                  <p class="copyright">&copy; 2024 VegBites. All rights reserved.</p>
+                  <p class="tagline">Made with ❤️ for fresh veg lovers</p>
+              </div>
+          </div>
+      </footer>
+    </main>
+
+    <!-- Linking Swiper script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      AOS.init({
+        offset: 50,
+        duration: 600,
+        once: true,
+        disable: false
+      });
+      </script>
+
+    <!-- Linking custom script -->
+    <script src="/Javascript/script.js"></script>
+    <script src="/Javascript/bot.js"></script>
+  </body>
+</html>

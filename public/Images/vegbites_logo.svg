@@ -1,0 +1,61 @@
+<svg width="100%" viewBox="0 0 680 520" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <clipPath id="circle-clip">
+      <circle cx="340" cy="235" r="168"/>
+    </clipPath>
+  <mask id="imagine-text-gaps-rqzd9p" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="680" height="520" fill="white"/><rect x="234.48794555664062" y="391.53955078125" width="209.09414672851562" height="56.75390625" fill="black" rx="2"/><rect x="161.9965057373047" y="453.0632019042969" width="356.0069580078125" height="17.510149002075195" fill="black" rx="2"/><rect x="170.25381469726562" y="54.679100036621094" width="336.1728210449219" height="121.49877166748047" fill="black" rx="2"/></mask></defs>
+
+  <!-- ═══ BADGE OUTER RING ═══ -->
+  <circle cx="340" cy="235" r="190" fill="#1a3d1a" style="fill:rgb(26, 61, 26);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="340" cy="235" r="178" fill="none" stroke="#4caf50" stroke-width="1.5" stroke-dasharray="6 4" style="fill:none;stroke:rgb(76, 175, 80);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-dasharray:6px, 4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="340" cy="235" r="168" fill="#f0faf0" style="fill:rgb(240, 250, 240);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ═══ INNER LEAF BODY (plate-shaped) ═══ -->
+  <!-- Leaf/plate shape: wide ellipse with pointed tip at top -->
+  <path d="&#10;    M340 90&#10;    C390 95, 460 130, 470 195&#10;    C480 255, 455 320, 400 355&#10;    C375 370, 355 378, 340 380&#10;    C325 378, 305 370, 280 355&#10;    C225 320, 200 255, 210 195&#10;    C220 130, 290 95, 340 90&#10;    Z&#10;  " fill="#2e7d32" style="fill:rgb(46, 125, 50);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ═══ LEAF VEINS (mid vein + laterals) ═══ -->
+  <!-- Central vein -->
+  <path d="M340 105 Q342 220 340 370" fill="none" stroke="#66bb6a" stroke-width="2" stroke-linecap="round" opacity="0.7" mask="url(#imagine-text-gaps-rqzd9p)" style="fill:none;stroke:rgb(102, 187, 106);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Left lateral veins -->
+  <path d="M338 165 Q300 175 270 200" fill="none" stroke="#66bb6a" stroke-width="1.2" stroke-linecap="round" opacity="0.6" mask="url(#imagine-text-gaps-rqzd9p)" style="fill:none;stroke:rgb(102, 187, 106);color:rgb(0, 0, 0);stroke-width:1.2px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M338 210 Q295 220 262 250" fill="none" stroke="#66bb6a" stroke-width="1.2" stroke-linecap="round" opacity="0.6" style="fill:none;stroke:rgb(102, 187, 106);color:rgb(0, 0, 0);stroke-width:1.2px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M338 260 Q298 270 270 295" fill="none" stroke="#66bb6a" stroke-width="1.2" stroke-linecap="round" opacity="0.6" style="fill:none;stroke:rgb(102, 187, 106);color:rgb(0, 0, 0);stroke-width:1.2px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Right lateral veins -->
+  <path d="M342 165 Q380 175 410 200" fill="none" stroke="#66bb6a" stroke-width="1.2" stroke-linecap="round" opacity="0.6" mask="url(#imagine-text-gaps-rqzd9p)" style="fill:none;stroke:rgb(102, 187, 106);color:rgb(0, 0, 0);stroke-width:1.2px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M342 210 Q385 220 418 250" fill="none" stroke="#66bb6a" stroke-width="1.2" stroke-linecap="round" opacity="0.6" style="fill:none;stroke:rgb(102, 187, 106);color:rgb(0, 0, 0);stroke-width:1.2px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M342 260 Q382 270 410 295" fill="none" stroke="#66bb6a" stroke-width="1.2" stroke-linecap="round" opacity="0.6" style="fill:none;stroke:rgb(102, 187, 106);color:rgb(0, 0, 0);stroke-width:1.2px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ═══ BITE MARK — taken from the right side ═══ -->
+  <!-- White semi-circular bite arc cut from leaf -->
+  <path d="&#10;    M430 170&#10;    A42 42 0 0 1 458 228&#10;    A42 42 0 0 1 420 265&#10;    L470 270&#10;    L480 160&#10;    Z&#10;  " fill="#f0faf0" style="fill:rgb(240, 250, 240);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Soft shadow line at bite edge for realism -->
+  <path d="M430 170 A42 42 0 0 1 458 228 A42 42 0 0 1 420 265" fill="none" stroke="#1a5c1a" stroke-width="2" stroke-linecap="round" opacity="0.5" mask="url(#imagine-text-gaps-rqzd9p)" style="fill:none;stroke:rgb(26, 92, 26);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Individual tooth marks (3 small arcs) -->
+  <path d="M435 180 A10 10 0 0 1 454 195" fill="none" stroke="#1a5c1a" stroke-width="1.5" stroke-linecap="round" opacity="0.4" mask="url(#imagine-text-gaps-rqzd9p)" style="fill:none;stroke:rgb(26, 92, 26);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M449 208 A10 10 0 0 1 458 230" fill="none" stroke="#1a5c1a" stroke-width="1.5" stroke-linecap="round" opacity="0.4" style="fill:none;stroke:rgb(26, 92, 26);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M450 242 A10 10 0 0 1 432 260" fill="none" stroke="#1a5c1a" stroke-width="1.5" stroke-linecap="round" opacity="0.4" style="fill:none;stroke:rgb(26, 92, 26);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ═══ WORDMARK: VegBites ═══ -->
+  <!-- Main logotype below the leaf badge -->
+  <text x="340" y="436" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="700" letter-spacing="-1" fill="#1a3d1a" style="fill:rgb(26, 61, 26);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Georgia, &quot;Times New Roman&quot;, serif;font-size:46px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Veg<tspan fill="#4caf50" style="fill:rgb(76, 175, 80);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Georgia, &quot;Times New Roman&quot;, serif;font-size:46px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Bites</tspan></text>
+
+  <!-- ═══ TAGLINE ═══ -->
+  <text x="340" y="466" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" letter-spacing="4" fill="#4caf50" font-weight="400" style="fill:rgb(76, 175, 80);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Helvetica Neue&quot;, Arial, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">FRESH · PLANT-BASED · WHOLESOME</text>
+
+  <!-- ═══ CIRCULAR TEXT ON BADGE RING ═══ -->
+  <path id="topArc" d="M 172 235 A 168 168 0 0 1 508 235" fill="none" mask="url(#imagine-text-gaps-rqzd9p)" style="fill:none;stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path id="botArc" d="M 182 250 A 158 158 0 0 0 498 250" fill="none" mask="url(#imagine-text-gaps-rqzd9p)" style="fill:none;stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <text font-family="'Helvetica Neue', Arial, sans-serif" font-size="11.5" letter-spacing="3.5" fill="#4caf50" font-weight="500" style="fill:rgb(76, 175, 80);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Helvetica Neue&quot;, Arial, sans-serif;font-size:11.5px;font-weight:500;text-anchor:start;dominant-baseline:auto">
+    <textPath href="#topArc" startOffset="12%" style="fill:rgb(76, 175, 80);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Helvetica Neue&quot;, Arial, sans-serif;font-size:11.5px;font-weight:500;text-anchor:start;dominant-baseline:auto">GOOD FOOD  ✦  GREEN LIFE  ✦  HEALTHY BITES</textPath>
+  </text>
+
+  <!-- ═══ SMALL LEAF ACCENT (stem curl at base of leaf) ═══ -->
+  <path d="M340 375 Q330 400 318 408 Q328 396 340 385 Q352 396 362 408 Q350 400 340 375 Z" fill="#2e7d32" opacity="0.6" style="fill:rgb(46, 125, 50);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+</svg>

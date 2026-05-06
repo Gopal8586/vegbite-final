@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vegbite Website | Shivnai Tripathi</title>
+  <!-- Linking Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <!-- Linking Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/Vegbites2.css">
+  <link rel="stylesheet" href="/css/Responsive.css">
+  <link rel="stylesheet" href="/css/bot.css">
+  <link rel="stylesheet" href="/css/modern-vegbites-footer.css">
+  <!-- Aos -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Home Page Styles - LAST so it overrides everything cleanly -->
+  <link rel="stylesheet" href="/css/HomePageStyles.css">
+
+  <!-- Anti-Flicker Script -->
+  <script>if (localStorage.getItem('vb_user_name')) document.documentElement.className += ' hide-login';</script>
+</head>
+
+<body>
+
+  <!-- Bot Shivnai -->
+  <div id="chat-icon" onclick="toggleChat()">
+    <span id="chat-icon-text" style="color: white; font-size: 24px;">🤖</span> <!-- Updated icon text -->
+  </div>
+
+  <div id="chat-container">
+    <div id="header">
+      <h3 style="margin: 0;">Shivnai Tripathi</h3>
+      <div id="language">
+        <img id="language-icon" src="/Images/Home/languages.png" onclick="toggleLanguageSelector()" />
+        <select id="language-selector" onchange="changeLanguage()">
+          <option value="en">🇬🇧 English</option>
+          <option value="hi">🇮🇳 हिन्दी</option>
+          <option value="es">🇪🇸 Español</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="chat-box"></div>
+    <input type="text" id="user-input" onkeypress="checkEnter(event)" placeholder="Type your message...">
+    <button id="send-button" onclick="sendMessage()">Send</button>
+  </div>
+  <!-- Bot end -->
+
+
+
+  <!-- Header / Navbar -->
+  <header>
+    <nav class="navbar">
+      <a href="/" class="nav-logo" style="text-decoration: none;">
+        <h2 class="logo-text"> Vegbites</h2>
+      </a>
+
+      <ul class="nav-menu">
+        <button id="menu-close-button" class="fas fa-times"></button>
+
+        <li class="nav-item">
+          <a href="/" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/html/About.html" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="/html/menu.html" class="nav-link">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a href="/html/Contact.html" class="nav-link">Contact</a>
+        </li>
+      </ul>
+
+      <a href="/login" style="text-decoration: none;"><button class="login-btn">LOG IN</button></a>
+      <button id="menu-open-button" class="fas fa-bars"></button>
+    </nav>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let currentPath = window.location.pathname;
+        // Small fix for dynamic routing variations
+        if (currentPath === '' || currentPath === ' ') currentPath = '/';
+
+        document.querySelectorAll('.nav-menu .nav-link').forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === currentPath || (currentPath === '/' && href === '/')) {
+            link.classList.add('active');
+          }
+        });
+      });
+    </script>
+  </header>
+
+  <main>
+    <!-- Hero section -->
+    <section class="hero-section">
+      <div class="section-content">
+        <div class="hero-details" data-aos="fade-right">
+          <h2 class="title">Best Veg Food</h2>
+          <h3 class="subtitle">Make your day great with our special Tastes!</h3>
+          <p class="description">Welcome to our Kitchen paradise, where every Food tells a story and every Indian
+            Kitchen.</p>
+
+          <div class="buttons">
+            <a href="/html/menu.html" class="button order-now">Order Now</a>
+            <a href="/html/Contact.html" class="button contact-us">Contact Us</a>
+          </div>
+        </div>
+        <div class="hero-image-wrapper" data-aos="zoom-out-down">
+          <img src="/Images/Home/hero2.png" alt="VegBites Gourmet Veg Food" class="hero-image" />
+        </div>
+      </div>
+    </section>
+
+    <!-- About section -->
+    <section class="about-section" id="about">
+      <div class="section-content">
+        <div class="about-image-wrapper" data-aos="zoom-in">
+          <img src="images/About/Abot_hero.png" alt="About" class="about-image" />
+        </div>
+        <div class="about-details" data-aos="fade-up">
+          <h2 class="section-title" style="text-align: center;">About Us</h2>
+          <p class="text">VegBites offers a delightful selection of vegetarian dishes with a smooth, user-friendly
+            interface. Customers can effortlessly explore the menu, add items to their cart, and proceed to checkout,
+            making online ordering easy and enjoyable. Designed with quality in mind, VegBites is a great choice for
+            delicious vegetarian dining.</p>
+
+          <div class="social-link-list">
+            <a href="/html/About.html"><button>Read More..</button></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Testimonials section -->
+    <section class="testimonials-section" id="testimonials">
+      <h2 class="section-title" style="text-align: center;">Testimonials</h2>
+      <div class="section-content">
+        <div class="slider-container swiper">
+          <div class="slider-wrapper">
+            <ul class="testimonials-list swiper-wrapper">
+              <li class="testimonial swiper-slide">
+                <img src="/Images/Home/Testimonials/testi3.png" alt="User" class="user-image" />
+                <h3 class="name">Gauri Kumari</h3>
+                <i class="feedback">"VegBites is user-friendly, fast, and offers great payment options!"</i>
+              </li>
+              <li class="testimonial swiper-slide">
+                <img src="/Images/Home/Testimonials/testi4.png" alt="User" class="user-image" />
+                <h3 class="name">Akshita</h3>
+                <i class="feedback">"Love the assistant bot! Easy ordering and smooth checkout process."</i>
+              </li>
+              <li class="testimonial swiper-slide">
+                <img src="/Images/Home/Testimonials/testi0.png" alt="User" class="user-image" />
+                <h3 class="name">Monu Sharma</h3>
+
+                <i class="feedback">"Simple navigation, responsive cart, and helpful payment options. Excellent!"</i>
+              </li>
+              <li class="testimonial swiper-slide">
+                <img src="/Images/Home/Testimonials/testi2.png" alt="User" class="user-image" />
+                <h3 class="name">Ritik Roy Kapoor</h3>
+
+                <i class="feedback">"Effortless experience with Gopal bot and multiple payment methods!"</i>
+              </li>
+              <li class="testimonial swiper-slide">
+                <img src="/Images/Home/Testimonials/Testimonial 4.jpg" alt="User" class="user-image" />
+                <h3 class="name">Ankit Pandey</h3>
+
+                <i class="feedback">"Language support and cart features are excellent. VegBites is fantastic!"
+
+                </i>
+              </li>
+            </ul>
+
+            <div class="swiper-pagination"></div>
+            <div class="swiper-slide-button swiper-button-prev"></div>
+            <div class="swiper-slide-button swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Popular Dishes Section -->
+    <section class="popular-dishes-section" id="popular-dishes">
+      <div class="popular-dishes-inner">
+        <div class="section-tag" data-aos="fade-up">⭐ Customer Favourites</div>
+        <h2 class="popular-dishes-title" data-aos="fade-up" data-aos-delay="100">Our Popular Dishes</h2>
+        <p class="popular-dishes-subtitle" data-aos="fade-up" data-aos-delay="150">Hand-picked favourites loved by
+          thousands of happy customers</p>
+
+        <div class="dishes-grid">
+          <!-- Card 1 -->
+          <div class="dish-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="dish-img-wrap">
+              <span class="dish-badge">🔥 Bestseller</span>
+              <img src="/Images/Menu/Main-course/paneerbuuter.jpg" alt="Paneer Butter Masala">
+              <div class="dish-overlay">
+                <a href="/html/menu.html" class="dish-order-btn">Order Now</a>
+              </div>
+            </div>
+            <div class="dish-info">
+              <div class="dish-rating">⭐⭐⭐⭐⭐ <span>4.9</span></div>
+              <h3>Paneer Butter Masala</h3>
+              <p>Creamy, rich tomato gravy with soft cottage cheese cubes</p>
+              <div class="dish-footer">
+                <span class="dish-price">₹ 220</span>
+                <a href="/html/menu.html" class="dish-add-btn">+ Add</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="dish-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="dish-img-wrap">
+              <span class="dish-badge">❤️ Most Loved</span>
+              <img src="/Images/Menu/Main-course/daalmakhn.jpeg" alt="Dal Makhani">
+              <div class="dish-overlay">
+                <a href="/html/menu.html" class="dish-order-btn">Order Now</a>
+              </div>
+            </div>
+            <div class="dish-info">
+              <div class="dish-rating">⭐⭐⭐⭐⭐ <span>4.8</span></div>
+              <h3>Dal Makhani</h3>
+              <p>Slow-cooked black lentils simmered overnight in butter & cream</p>
+              <div class="dish-footer">
+                <span class="dish-price">₹ 180</span>
+                <a href="/html/menu.html" class="dish-add-btn">+ Add</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="dish-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="dish-img-wrap">
+              <span class="dish-badge">🌿 Chef's Pick</span>
+              <img src="/Images/Menu/Main-course/veg biriyani.jpg" alt="Veg Biryani">
+              <div class="dish-overlay">
+                <a href="/html/menu.html" class="dish-order-btn">Order Now</a>
+              </div>
+            </div>
+            <div class="dish-info">
+              <div class="dish-rating">⭐⭐⭐⭐⭐ <span>4.7</span></div>
+              <h3>Veg Biryani</h3>
+              <p>Fragrant basmati rice layered with garden-fresh vegetables & spices</p>
+              <div class="dish-footer">
+                <span class="dish-price">₹ 240</span>
+                <a href="/html/menu.html" class="dish-add-btn">+ Add</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="dish-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="dish-img-wrap">
+              <span class="dish-badge">🥬 Healthy</span>
+              <img src="/Images/Menu/Main-course/Palak_Paneer.png" alt="Palak Paneer">
+              <div class="dish-overlay">
+                <a href="/html/menu.html" class="dish-order-btn">Order Now</a>
+              </div>
+            </div>
+            <div class="dish-info">
+              <div class="dish-rating">⭐⭐⭐⭐⭐ <span>4.8</span></div>
+              <h3>Palak Paneer</h3>
+              <p>Smooth spinach gravy with cottage cheese, iron-rich & delicious</p>
+              <div class="dish-footer">
+                <span class="dish-price">₹ 200</span>
+                <a href="/html/menu.html" class="dish-add-btn">+ Add</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="dish-card" data-aos="fade-up" data-aos-delay="250">
+            <div class="dish-img-wrap">
+              <span class="dish-badge">🍽️ Popular</span>
+              <img src="/Images/Menu/Main-course/chhole bhature.jpg" alt="Chole Bhature">
+              <div class="dish-overlay">
+                <a href="/html/menu.html" class="dish-order-btn">Order Now</a>
+              </div>
+            </div>
+            <div class="dish-info">
+              <div class="dish-rating">⭐⭐⭐⭐ <span>4.6</span></div>
+              <h3>Chole Bhature</h3>
+              <p>Fluffy fried bread with spicy chickpea curry – a timeless classic</p>
+              <div class="dish-footer">
+                <span class="dish-price">₹ 160</span>
+                <a href="/html/menu.html" class="dish-add-btn">+ Add</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="dish-card" data-aos="fade-up" data-aos-delay="350">
+            <div class="dish-img-wrap">
+              <span class="dish-badge">🥞 South Fav</span>
+              <img src="/Images/Menu/Main-course/masaladosa.jpg" alt="Masala Dosa">
+              <div class="dish-overlay">
+                <a href="/html/menu.html" class="dish-order-btn">Order Now</a>
+              </div>
+            </div>
+            <div class="dish-info">
+              <div class="dish-rating">⭐⭐⭐⭐⭐ <span>4.9</span></div>
+              <h3>Masala Dosa</h3>
+              <p>Crispy golden crepe stuffed with spiced potato & served with chutneys</p>
+              <div class="dish-footer">
+                <span class="dish-price">₹ 130</span>
+                <a href="/html/menu.html" class="dish-add-btn">+ Add</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dishes-cta" data-aos="fade-up" data-aos-delay="200">
+          <a href="/html/menu.html" class="view-menu-btn">View Full Menu →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Offers Section -->
+    <section class="offers-section" id="offers">
+      <div class="offers-inner">
+        <div class="section-tag" data-aos="fade-up">🎉 Limited Time Deals</div>
+        <h2 class="offers-title" data-aos="fade-up" data-aos-delay="100">Today's Special Offers</h2>
+        <p class="offers-subtitle" data-aos="fade-up" data-aos-delay="150">Don't miss out — these deals are only for a
+          limited time!</p>
+
+        <div class="offers-grid">
+          <!-- Offer Card 1 -->
+          <div class="offer-card offer-card--green" data-aos="zoom-in" data-aos-delay="100">
+            <div class="offer-icon">🥗</div>
+            <div class="offer-discount">20% OFF</div>
+            <h3>Healthy Combo Meal</h3>
+            <p>Get any starter + main course + dessert at a flat 20% discount. Eat healthy, save big!</p>
+            <div class="offer-validity">Valid till 31st March 2024</div>
+            <a href="/html/menu.html" class="offer-cta-btn">Grab Deal</a>
+          </div>
+
+          <!-- Offer Card 2 -->
+          <div class="offer-card offer-card--orange" data-aos="zoom-in" data-aos-delay="200">
+            <div class="offer-icon">🛵</div>
+            <div class="offer-discount">FREE DELIVERY</div>
+            <h3>On Orders Above ₹499</h3>
+            <p>Order your favourites worth ₹499 or more and we'll deliver it to your door absolutely free!</p>
+            <div class="offer-validity">No coupon needed — auto applied</div>
+            <a href="/html/menu.html" class="offer-cta-btn">Order Now</a>
+          </div>
+
+          <!-- Offer Card 3 -->
+          <div class="offer-card offer-card--purple" data-aos="zoom-in" data-aos-delay="300">
+            <div class="offer-icon">🎂</div>
+            <div class="offer-discount">BUY 1 GET 1</div>
+            <h3>Weekend Dessert Fiesta</h3>
+            <p>Every Saturday & Sunday — buy any dessert and get one free. End your meal on a sweet note!</p>
+            <div class="offer-validity">Every Weekend Only</div>
+            <a href="/html/menu.html" class="offer-cta-btn">Celebrate</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- New Modern VegBites Card Footer -->
+    <footer class="vegbites-footer">
+      <div class="footer-card">
+
+
+        <!-- 🎯 2. Fix Footer Grid Alignment -->
+        <div class="footer-container">
+          <!-- Column 1: Logo + Description + Social -->
+          <div class="footer-column">
+            <h2 class="footer-logo">VegBites</h2>
+            <p>Fresh, delicious vegetarian food delivered to your door. Quality ingredients, authentic flavors for
+              healthy living.</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/html/menu.html">Menu</a></li>
+              <li><a href="/html/cart2.html">Cart</a></li>
+              <li><a href="#">Order Status</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: About Us -->
+          <div class="footer-column">
+            <h3>About Us</h3>
+            <ul class="footer-links">
+              <li><a href="/html/About.html">Our Story</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Values</a></li>
+              <li><a href="#">Customer Support</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Contact + Newsletter -->
+          <div class="footer-column">
+            <h3>Contact</h3>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>232 G Tilak Nagar, Allahabad</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+91 9336312716</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>shivitripathi@gmail.com</span>
+            </div>
+
+            <div class="newsletter-section">
+              <h3 style="margin-top: 1.5rem;">Newsletter</h3>
+              <div class="newsletter">
+                <input type="email" placeholder="Enter your email">
+                <button>Subscribe</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🎯 6. Add Footer Bottom Bar -->
+        <div class="footer-bottom">
+          <p class="copyright">&copy; 2024 VegBites. All rights reserved.</p>
+          <p class="tagline">Made with ❤️ for fresh veg lovers</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Linking Swiper script -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    AOS.init({
+      offset: 50,
+      duration: 600,
+      once: true,
+      disable: false
+    });
+    function openLightbox(img) {
+      document.getElementById("lightbox").style.display = "flex";
+      document.getElementById("lightbox-img").src = img.src;
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
+
+  <!-- Linking custom script -->
+  <script src="/Javascript/script.js"></script>
+  <script src="/Javascript/bot.js"></script>
+</body>
+
+</html>

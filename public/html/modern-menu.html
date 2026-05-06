@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - VegBites</title>
+    <meta name="description" content="Explore our delicious vegetarian menu with Indian, Chinese, Italian, and more cuisines.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/modern-responsive.css">
+    <link rel="stylesheet" href="/css/modern-navbar.css">
+    <link rel="stylesheet" href="/css/modern-menu.css">
+    <link rel="stylesheet" href="/css/HomePageStyles.css">
+</head>
+<body>
+    <!-- Modern Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <!-- Logo -->
+            <a href="/vegbite" class="navbar-logo">
+                <img src="/Images/Home/logo.png" alt="VegBites" onerror="this.style.display='none'">
+                <span class="logo-text">VegBites</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav">
+                <ul class="navbar-menu">
+                    <li class="nav-item">
+                        <a href="/vegbite" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/html/menu.html" class="nav-link active">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/html/About.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/html/Contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+
+                <!-- Navbar Actions -->
+                <div class="navbar-actions">
+                    <a href="/html/cart2.html" class="navbar-cart">
+                        <i class="fas fa-shopping-cart cart-icon"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </a>
+                    <a href="/html/login.html" class="navbar-login">Login</a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="/vegbite" class="mobile-menu-logo">
+                <img src="/Images/Home/logo.png" alt="VegBites" onerror="this.style.display='none'">
+                <span>VegBites</span>
+            </a>
+            <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="mobile-menu-content">
+            <!-- Priority Login Button -->
+            <a href="/html/login.html" class="mobile-menu-login">
+                <i class="fas fa-user"></i>
+                Login / Sign Up
+            </a>
+
+            <!-- Mobile Navigation -->
+            <ul class="mobile-menu-nav">
+                <li class="nav-item">
+                    <a href="/vegbite" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/html/menu.html" class="nav-link">
+                        <i class="fas fa-utensils"></i>
+                        Menu
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/html/About.html" class="nav-link">
+                        <i class="fas fa-info-circle"></i>
+                        About Us
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/html/Contact.html" class="nav-link">
+                        <i class="fas fa-phone"></i>
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Mobile Menu Footer -->
+        <div class="mobile-menu-footer">
+            <a href="/html/cart2.html" class="mobile-menu-cart">
+                <div class="cart-info">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>View Cart</span>
+                    <span class="cart-count" id="mobile-cart-count">0</span>
+                </div>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Menu Hero Section -->
+    <section class="menu-hero">
+        <div class="menu-hero-content">
+            <h1>Our Delicious Menu</h1>
+            <p>Explore our wide variety of vegetarian dishes, from traditional Indian favorites to international cuisines</p>
+        </div>
+    </section>
+
+    <!-- Menu Controls -->
+    <section class="menu-controls">
+        <div class="menu-controls-content">
+            <!-- Search Bar -->
+            <div class="search-section">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" id="search-input" placeholder="Search for dishes...">
+            </div>
+
+            <!-- Category Filters -->
+            <div class="category-filters">
+                <button class="category-btn active" data-category="all">
+                    <i class="fas fa-th"></i>
+                    All
+                </button>
+                <button class="category-btn" data-category="indian">
+                    <i class="fas fa-pepper-hot"></i>
+                    Indian
+                </button>
+                <button class="category-btn" data-category="chinese">
+                    <i class="fas fa-bowl-food"></i>
+                    Chinese
+                </button>
+                <button class="category-btn" data-category="italian">
+                    <i class="fas fa-pizza-slice"></i>
+                    Italian
+                </button>
+                <button class="category-btn" data-category="desserts">
+                    <i class="fas fa-ice-cream"></i>
+                    Desserts
+                </button>
+                <button class="category-btn" data-category="beverages">
+                    <i class="fas fa-coffee"></i>
+                    Beverages
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Grid -->
+    <main class="menu-page">
+        <div class="menu-grid" id="menu-grid">
+            <!-- Menu items will be loaded dynamically -->
+        </div>
+    </main>
+
+    <script>
+        // Menu Data
+        const menuItems = [
+            // Indian Dishes
+            {
+                id: 1,
+                name: 'Paneer Butter Masala',
+                category: 'indian',
+                price: 189,
+                image: '/Images/Menu/paneer-butter.jpg',
+                rating: 4.5,
+                reviews: 234,
+                tags: ['spicy', 'popular'],
+                badge: 'Bestseller'
+            },
+            {
+                id: 2,
+                name: 'Veg Biryani',
+                category: 'indian',
+                price: 229,
+                image: '/Images/Menu/veg-biryani.jpg',
+                rating: 4.7,
+                reviews: 189,
+                tags: ['spicy', 'popular']
+            },
+            {
+                id: 3,
+                name: 'Masala Dosa',
+                category: 'indian',
+                price: 89,
+                image: '/Images/Menu/masala-dosa.jpg',
+                rating: 4.3,
+                reviews: 156,
+                tags: ['south-indian']
+            },
+            {
+                id: 4,
+                name: 'Palak Paneer',
+                category: 'indian',
+                price: 179,
+                image: '/Images/Menu/palak-paneer.jpg',
+                rating: 4.4,
+                reviews: 98,
+                tags: ['healthy', 'north-indian']
+            },
+            {
+                id: 5,
+                name: 'Dal Makhani',
+                category: 'indian',
+                price: 159,
+                image: '/Images/Menu/dal-makhani.jpg',
+                rating: 4.6,
+                reviews: 142,
+                tags: ['creamy', 'popular']
+            },
+            {
+                id: 6,
+                name: 'Aloo Gobi',
+                category: 'indian',
+                price: 139,
+                image: '/Images/Menu/aloo-gobi.jpg',
+                rating: 4.2,
+                reviews: 87,
+                tags: ['dry-curry']
+            },
+            
+            // Chinese Dishes
+            {
+                id: 7,
+                name: 'Veg Manchurian',
+                category: 'chinese',
+                price: 199,
+                image: '/Images/Menu/veg-manchurian.jpg',
+                rating: 4.6,
+                reviews: 201,
+                tags: ['spicy', 'popular'],
+                badge: 'Hot'
+            },
+            {
+                id: 8,
+                name: 'Hakka Noodles',
+                category: 'chinese',
+                price: 149,
+                image: '/Images/Menu/hakka-noodles.jpg',
+                rating: 4.3,
+                reviews: 123,
+                tags: ['noodles']
+            },
+            {
+                id: 9,
+                name: 'Spring Rolls',
+                category: 'chinese',
+                price: 129,
+                image: '/Images/Menu/spring-rolls.jpg',
+                rating: 4.5,
+                reviews: 89,
+                tags: ['starter', 'crispy']
+            },
+            {
+                id: 10,
+                name: 'Veg Fried Rice',
+                category: 'chinese',
+                price: 169,
+                image: '/Images/Menu/veg-fried-rice.jpg',
+                rating: 4.4,
+                reviews: 167,
+                tags: ['rice', 'popular']
+            },
+            
+            // Italian Dishes
+            {
+                id: 11,
+                name: 'Margherita Pizza',
+                category: 'italian',
+                price: 249,
+                image: '/Images/Menu/margherita-pizza.jpg',
+                rating: 4.7,
+                reviews: 298,
+                tags: ['pizza', 'cheesy'],
+                badge: 'Popular'
+            },
+            {
+                id: 12,
+                name: 'Pasta Arrabiata',
+                category: 'italian',
+                price: 219,
+                image: '/Images/Menu/pasta-arrabiata.jpg',
+                rating: 4.5,
+                reviews: 134,
+                tags: ['pasta', 'spicy']
+            },
+            {
+                id: 13,
+                name: 'Veg Lasagna',
+                category: 'italian',
+                price: 279,
+                image: '/Images/Menu/veg-lasagna.jpg',
+                rating: 4.8,
+                reviews: 176,
+                tags: ['baked', 'creamy']
+            },
+            
+            // Desserts
+            {
+                id: 14,
+                name: 'Gulab Jamun',
+                category: 'desserts',
+                price: 79,
+                image: '/Images/Menu/gulab-jamun.jpg',
+                rating: 4.6,
+                reviews: 145,
+                tags: ['sweet', 'traditional']
+            },
+            {
+                id: 15,
+                name: 'Rasmalai',
+                category: 'desserts',
+                price: 89,
+                image: '/Images/Menu/rasmalai.jpg',
+                rating: 4.7,
+                reviews: 98,
+                tags: ['creamy', 'sweet']
+            },
+            {
+                id: 16,
+                name: 'Chocolate Brownie',
+                category: 'desserts',
+                price: 99,
+                image: '/Images/Menu/chocolate-brownie.jpg',
+                rating: 4.8,
+                reviews: 187,
+                tags: ['chocolate', 'baked']
+            },
+            
+            // Beverages
+            {
+                id: 17,
+                name: 'Fresh Lime Soda',
+                category: 'beverages',
+                price: 59,
+                image: '/Images/Menu/lime-soda.jpg',
+                rating: 4.4,
+                reviews: 67,
+                tags: ['refreshing', 'cold']
+            },
+            {
+                id: 18,
+                name: 'Mango Lassi',
+                category: 'beverages',
+                price: 69,
+                image: '/Images/Menu/mango-lassi.jpg',
+                rating: 4.6,
+                reviews: 89,
+                tags: ['traditional', 'sweet']
+            }
+        ];
+
+        // State
+        let currentCategory = 'all';
+        let searchTerm = '';
+        let filteredItems = [...menuItems];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize mobile menu
+            initializeMobileMenu();
+            
+            // Load menu items
+            renderMenuItems();
+            
+            // Setup category filters
+            setupCategoryFilters();
+            
+            // Setup search
+            setupSearch();
+            
+            // Update cart count
+            updateCartCount();
+        });
+
+        // Initialize Mobile Menu
+        function initializeMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            function openMobileMenu() {
+                mobileMenu.classList.add('active');
+                mobileMenuOverlay.classList.add('active');
+                mobileMenuBtn.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeMobileMenu();
+                }
+            });
+        }
+
+        // Setup Category Filters
+        function setupCategoryFilters() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Update current category
+                    currentCategory = this.dataset.category;
+                    
+                    // Filter and render items
+                    filterAndRenderItems();
+                });
+            });
+        }
+
+        // Setup Search
+        function setupSearch() {
+            const searchInput = document.getElementById('search-input');
+            
+            searchInput.addEventListener('input', function() {
+                searchTerm = this.value.toLowerCase();
+                filterAndRenderItems();
+            });
+        }
+
+        // Filter and Render Items
+        function filterAndRenderItems() {
+            filteredItems = menuItems.filter(item => {
+                const matchesCategory = currentCategory === 'all' || item.category === currentCategory;
+                const matchesSearch = searchTerm === '' || 
+                    item.name.toLowerCase().includes(searchTerm) ||
+                    item.tags.some(tag => tag.toLowerCase().includes(searchTerm));
+                
+                return matchesCategory && matchesSearch;
+            });
+            
+            renderMenuItems();
+        }
+
+        // Render Menu Items
+        function renderMenuItems() {
+            const menuGrid = document.getElementById('menu-grid');
+            
+            if (filteredItems.length === 0) {
+                menuGrid.innerHTML = `
+                    <div class="menu-empty">
+                        <div class="menu-empty-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>No dishes found</h3>
+                        <p>Try adjusting your search or filters</p>
+                        <button class="btn btn-primary" onclick="resetFilters()">
+                            <i class="fas fa-redo"></i>
+                            Reset Filters
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            menuGrid.innerHTML = filteredItems.map(item => `
+                <div class="menu-card" onclick="addToCart(${item.id}, '${item.name}', ${item.price}, '${item.image}')">
+                    <div class="menu-card-image">
+                        <img src="${item.image}" alt="${item.name}" onerror="this.src='/Images/Home/placeholder-food.jpg'">
+                        ${item.badge ? `<span class="menu-card-badge">${item.badge}</span>` : ''}
+                    </div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-header">
+                            <h3 class="menu-card-name">${item.name}</h3>
+                            <div class="menu-card-tags">
+                                ${item.tags.map(tag => `<span class="menu-tag">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div class="menu-card-rating">
+                            <div class="menu-stars">
+                                ${generateStars(item.rating)}
+                            </div>
+                            <span class="menu-rating-text">${item.rating} (${item.reviews})</span>
+                        </div>
+                        <div class="menu-card-footer">
+                            <div class="menu-price">₹${item.price}</div>
+                            <button class="menu-add-btn" onclick="event.stopPropagation(); addToCart(${item.id}, '${item.name}', ${item.price}, '${item.image}')">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Generate Star Rating
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            let stars = '';
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - Math.ceil(rating);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+
+        // Add to Cart
+        function addToCart(id, name, price, image) {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    image: image,
+                    quantity: 1
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            showToast(`${name} added to cart!`);
+            
+            // Update button state
+            const addBtn = event.target;
+            if (addBtn.classList.contains('menu-add-btn')) {
+                addBtn.classList.add('added');
+                addBtn.innerHTML = '<i class="fas fa-check"></i>';
+                
+                setTimeout(() => {
+                    addBtn.classList.remove('added');
+                    addBtn.innerHTML = '<i class="fas fa-plus"></i>';
+                }, 2000);
+            }
+        }
+
+        // Update Cart Count
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            const cartCountElements = document.querySelectorAll('.cart-count');
+            cartCountElements.forEach(element => {
+                element.textContent = count;
+                element.style.display = count > 0 ? 'block' : 'none';
+            });
+        }
+
+        // Reset Filters
+        function resetFilters() {
+            currentCategory = 'all';
+            searchTerm = '';
+            
+            // Reset category buttons
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.category === 'all') {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Reset search input
+            document.getElementById('search-input').value = '';
+            
+            // Filter and render
+            filterAndRenderItems();
+        }
+
+        // Show Toast
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast success show';
+            toast.innerHTML = `
+                <i class="fas fa-check-circle"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+
+        // Listen for cart changes
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'cart') {
+                updateCartCount();
+            }
+        });
+    </script>
+</body>
+</html>

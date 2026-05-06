@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VegBites - Fresh Vegetarian Food Delivery</title>
+    <meta name="description" content="Order fresh, delicious vegetarian food online. Fast delivery to your doorstep.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/modern-responsive.css">
+    <link rel="stylesheet" href="/css/modern-navbar.css">
+    <link rel="stylesheet" href="/css/modern-home.css">
+</head>
+<body>
+    <!-- Modern Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <!-- Logo -->
+            <a href="/vegbite" class="navbar-logo">
+                <img src="/Images/Home/logo.png" alt="VegBites" onerror="this.style.display='none'">
+                <span class="logo-text">VegBites</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav">
+                <ul class="navbar-menu">
+                    <li class="nav-item">
+                        <a href="/vegbite" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/html/menu.html" class="nav-link">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/html/About.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/html/Contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+
+                <!-- Navbar Actions -->
+                <div class="navbar-actions">
+                    <a href="/html/cart2.html" class="navbar-cart">
+                        <i class="fas fa-shopping-cart cart-icon"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </a>
+                    <a href="/html/login.html" class="navbar-login">Login</a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="/vegbite" class="mobile-menu-logo">
+                <img src="/Images/Home/logo.png" alt="VegBites" onerror="this.style.display='none'">
+                <span>VegBites</span>
+            </a>
+            <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="mobile-menu-content">
+            <!-- Priority Login Button -->
+            <a href="/html/login.html" class="mobile-menu-login">
+                <i class="fas fa-user"></i>
+                Login / Sign Up
+            </a>
+
+            <!-- Mobile Navigation -->
+            <ul class="mobile-menu-nav">
+                <li class="nav-item">
+                    <a href="/vegbite" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/html/menu.html" class="nav-link">
+                        <i class="fas fa-utensils"></i>
+                        Menu
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/html/About.html" class="nav-link">
+                        <i class="fas fa-info-circle"></i>
+                        About Us
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/html/Contact.html" class="nav-link">
+                        <i class="fas fa-phone"></i>
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Mobile Menu Footer -->
+        <div class="mobile-menu-footer">
+            <a href="/html/cart2.html" class="mobile-menu-cart">
+                <div class="cart-info">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>View Cart</span>
+                    <span class="cart-count" id="mobile-cart-count">0</span>
+                </div>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Fresh Vegetarian Food Delivered</h1>
+                    <p class="hero-subtitle">Craving delicious, healthy vegetarian meals? Order now and get fresh food delivered to your doorstep in 30 minutes!</p>
+                    <div class="hero-buttons">
+                        <a href="/html/menu.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-utensils"></i>
+                            Order Food
+                        </a>
+                        <a href="#features" class="btn btn-outline btn-lg">
+                            <i class="fas fa-play-circle"></i>
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <img src="/Images/Home/hero.png" alt="Fresh Vegetarian Food" class="hero-image" onerror="this.src='/Images/Home/hero2.png'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose VegBites?</h2>
+                <p class="section-subtitle">We're committed to bringing you the best vegetarian food experience</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Fast Delivery</h3>
+                    <p class="feature-description">Get your food delivered in just 30 minutes. Hot and fresh, every time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="feature-title">100% Vegetarian</h3>
+                    <p class="feature-description">All our dishes are completely vegetarian, made with fresh ingredients.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="feature-title">Quality Food</h3>
+                    <p class="feature-description">We use only the freshest ingredients and traditional recipes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Dishes Section -->
+    <section class="popular-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Popular Dishes</h2>
+                <p class="section-subtitle">Try our customer favorites, loved by thousands!</p>
+            </div>
+            <div class="popular-grid" id="popular-grid">
+                <!-- Popular items will be loaded dynamically -->
+            </div>
+            <div class="text-center mt-8">
+                <a href="/html/menu.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-th"></i>
+                    View Full Menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <p class="section-subtitle">Join thousands of happy customers who love our food</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The best vegetarian food delivery service I've ever used! Fresh, delicious, and always on time."</p>
+                    <div class="testimonial-author">
+                        <img src="/Images/Home/customer1.jpg" alt="Customer" class="author-avatar" onerror="this.style.display='none'">
+                        <div class="author-info">
+                            <div class="author-name">Priya Sharma</div>
+                            <div class="author-role">Regular Customer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Amazing variety of vegetarian dishes. The quality is consistently excellent!"</p>
+                    <div class="testimonial-author">
+                        <img src="/Images/Home/customer2.jpg" alt="Customer" class="author-avatar" onerror="this.style.display='none'">
+                        <div class="author-info">
+                            <div class="author-name">Rahul Verma</div>
+                            <div class="author-role">Food Lover</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"As a vegetarian, finding good delivery food was hard. VegBites changed everything!"</p>
+                    <div class="testimonial-author">
+                        <img src="/Images/Home/customer3.jpg" alt="Customer" class="author-avatar" onerror="this.style.display='none'">
+                        <div class="author-info">
+                            <div class="author-name">Anita Patel</div>
+                            <div class="author-role">Happy Customer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Order?</h2>
+                <p class="cta-subtitle">Join thousands of satisfied customers enjoying delicious vegetarian food</p>
+                <a href="/html/menu.html" class="cta-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    Order Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Footer (will be created separately) -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>VegBites</h3>
+                    <p>Your trusted partner for fresh, delicious vegetarian food delivery.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="/html/menu.html">Menu</a></li>
+                        <li><a href="/html/About.html">About Us</a></li>
+                        <li><a href="/html/Contact.html">Contact</a></li>
+                        <li><a href="/html/Privacy.Html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="/html/menu.html">Indian</a></li>
+                        <li><a href="/html/menu.html">Chinese</a></li>
+                        <li><a href="/html/menu.html">Italian</a></li>
+                        <li><a href="/html/menu.html">Desserts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i> +91 9369874073</li>
+                        <li><i class="fas fa-envelope"></i> info@vegbites.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Allahabad, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 VegBites. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Toggle mobile menu
+            function openMobileMenu() {
+                mobileMenu.classList.add('active');
+                mobileMenuOverlay.classList.add('active');
+                mobileMenuBtn.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            // Event listeners
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+            
+            // Close menu on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeMobileMenu();
+                }
+            });
+            
+            // Update cart count
+            function updateCartCount() {
+                const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                const count = cart.reduce((total, item) => total + item.quantity, 0);
+                
+                const cartCountElements = document.querySelectorAll('.cart-count');
+                cartCountElements.forEach(element => {
+                    element.textContent = count;
+                    element.style.display = count > 0 ? 'block' : 'none';
+                });
+            }
+            
+            // Update cart count on page load
+            updateCartCount();
+            
+            // Listen for cart changes
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'cart') {
+                    updateCartCount();
+                }
+            });
+            
+            // Update active nav link based on current page
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.navbar-menu .nav-link, .mobile-menu-nav .nav-link');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPath || 
+                    (currentPath === '/' && link.getAttribute('href') === '/vegbite')) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Load popular dishes
+            loadPopularDishes();
+            
+            // Navbar scroll effect
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('.navbar');
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    // Scrolling up
+                    navbar.style.transform = 'translateY(0)';
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+        });
+        
+        // Load popular dishes
+        function loadPopularDishes() {
+            const popularDishes = [
+                {
+                    id: 1,
+                    name: 'Paneer Butter Masala',
+                    price: 189,
+                    image: '/Images/Menu/paneer-butter.jpg',
+                    rating: 4.5,
+                    reviews: 234
+                },
+                {
+                    id: 2,
+                    name: 'Veg Biryani',
+                    price: 229,
+                    image: '/Images/Menu/veg-biryani.jpg',
+                    rating: 4.7,
+                    reviews: 189
+                },
+                {
+                    id: 3,
+                    name: 'Masala Dosa',
+                    price: 89,
+                    image: '/Images/Menu/masala-dosa.jpg',
+                    rating: 4.3,
+                    reviews: 156
+                },
+                {
+                    id: 4,
+                    name: 'Veg Manchurian',
+                    price: 199,
+                    image: '/Images/Menu/veg-manchurian.jpg',
+                    rating: 4.6,
+                    reviews: 201
+                }
+            ];
+            
+            const popularGrid = document.getElementById('popular-grid');
+            
+            popularDishes.forEach(dish => {
+                const card = document.createElement('div');
+                card.className = 'popular-card';
+                card.innerHTML = `
+                    <img src="${dish.image}" alt="${dish.name}" class="popular-image" onerror="this.src='/Images/Home/placeholder-food.jpg'">
+                    <div class="popular-content">
+                        <h3 class="popular-name">${dish.name}</h3>
+                        <div class="popular-rating">
+                            <div class="stars">
+                                ${generateStars(dish.rating)}
+                            </div>
+                            <span class="rating-text">${dish.rating} (${dish.reviews})</span>
+                        </div>
+                        <div class="popular-price">₹${dish.price}</div>
+                        <button class="add-to-cart-btn" onclick="addToCart(${dish.id}, '${dish.name}', ${dish.price}, '${dish.image}')">
+                            <i class="fas fa-plus"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                `;
+                popularGrid.appendChild(card);
+            });
+        }
+        
+        // Generate star rating HTML
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            let stars = '';
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - Math.ceil(rating);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+        
+        // Add to cart function
+        function addToCart(id, name, price, image) {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            
+            // Check if item already exists
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    image: image,
+                    quantity: 1
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Update cart count
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            const cartCountElements = document.querySelectorAll('.cart-count');
+            cartCountElements.forEach(element => {
+                element.textContent = count;
+                element.style.display = count > 0 ? 'block' : 'none';
+            });
+            
+            // Show toast notification
+            showToast(`${name} added to cart!`);
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast success show';
+            toast.innerHTML = `
+                <i class="fas fa-check-circle"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+    </script>
+    
+    <style>
+        /* Footer Styles */
+        .modern-footer {
+            background: var(--gray-900);
+            color: var(--white);
+            padding: var(--space-16) 0 var(--space-8);
+            margin-top: var(--space-20);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .footer-section h3 {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            color: var(--primary-green);
+        }
+        
+        .footer-section h4 {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin-bottom: var(--space-3);
+        }
+        
+        .footer-section p {
+            color: var(--gray-400);
+            line-height: 1.6;
+            margin-bottom: var(--space-4);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--space-2);
+        }
+        
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-green);
+        }
+        
+        .footer-contact {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-contact li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            margin-bottom: var(--space-2);
+            color: var(--gray-400);
+        }
+        
+        .footer-contact i {
+            color: var(--primary-green);
+            width: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--space-3);
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-green);
+            color: var(--white);
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            transition: all var(--transition-normal);
+        }
+        
+        .social-link:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--gray-700);
+            color: var(--gray-400);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-8 {
+            margin-top: var(--space-8);
+        }
+        
+        /* Tablet and Desktop Footer Styles */
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-12);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</body>
+</html>

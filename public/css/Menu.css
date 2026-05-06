@@ -1,0 +1,903 @@
+/* ============================================================
+   VegBites Menu Page — Premium Clean Design
+   Colors: #0f3d2e (dark green) | #3a8d0d (light green) | #6dbf1c (accent)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+
+/* ---- RESET & BASE ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f4f6f4;
+  color: #222;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.menu-hero {
+  min-height: 35vh;
+  background: linear-gradient(130deg, #0f3d2e 0%, #1b5e20 45%, #2e7d32 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 90px 8% 30px;
+  /* clears fixed navbar */
+  position: relative;
+  overflow: hidden;
+  gap: 40px;
+}
+
+/* decorative blobs */
+.menu-hero::before,
+.menu-hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.menu-hero::before {
+  width: 400px;
+  height: 400px;
+  background: rgba(109, 191, 28, 0.12);
+  top: -100px;
+  right: 25%;
+}
+
+.menu-hero::after {
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.05);
+  bottom: -80px;
+  left: 10%;
+}
+
+/* Back Button */
+.back-to-home-btn {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+
+.back-to-home-btn:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: translateX(-4px);
+}
+
+/* Hero Content */
+.hero-content {
+  flex: 1;
+  max-width: 560px;
+  z-index: 2;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-title span {
+  color: #6dbf1c;
+}
+
+.hero-subtitle {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  padding: 13px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.hero-btn.primary {
+  background: #6dbf1c;
+  color: #0f3d2e;
+  box-shadow: 0 6px 20px rgba(109, 191, 28, 0.35);
+}
+
+.hero-btn.primary:hover {
+  background: #5aa315;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(109, 191, 28, 0.45);
+}
+
+.hero-btn.secondary {
+  background: transparent;
+  color: #1b5e20;
+  border: 2px solid #1b5e20;
+}
+
+.hero-btn.secondary:hover {
+  background: #ffffff;
+  color: #1b5e20;
+  border-color: #1b5e20;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Image */
+.hero-image-wrapper {
+  flex: 0 0 auto;
+  width: clamp(240px, 30vw, 380px);
+  z-index: 2;
+}
+
+.hero-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.5s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.03);
+}
+
+
+/* ============================================================
+   MENU SECTION
+   ============================================================ */
+.menu-page {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 50px 5% 80px;
+}
+
+/* ---- Header Row ---- */
+.menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.menu-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.menu-header .title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #0f3d2e;
+  position: relative;
+  text-align: left;
+}
+
+.menu-header .title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #3a8d0d, #6dbf1c);
+  border-radius: 4px;
+  margin: 8px 0 0;
+}
+
+/* Search Bar */
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.search-bar i {
+  position: absolute;
+  left: 14px;
+  color: #888;
+  font-size: 15px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 11px 16px 11px 42px;
+  border: 2px solid #dde8d9;
+  border-radius: 50px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  color: #333;
+  transition: all 0.3s;
+  outline: none;
+}
+
+.search-bar input:focus {
+  border-color: #3a8d0d;
+  box-shadow: 0 0 0 3px rgba(58, 141, 13, 0.12);
+}
+
+/* Cart Icon */
+.menu-controls {
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  padding: 11px;
+  background: #fff;
+  border-radius: 50%;
+  border: 2px solid #dde8d9;
+  transition: all 0.3s;
+}
+
+.cart-icon:hover {
+  border-color: #3a8d0d;
+  box-shadow: 0 4px 14px rgba(58, 141, 13, 0.15);
+}
+
+.cart-icon i {
+  font-size: 18px;
+  color: #3a8d0d;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #6dbf1c;
+  color: #fff;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+
+/* ---- Category Filter Pills ---- */
+.categories {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.category-btn {
+  padding: 10px 22px;
+  border: 2px solid #dde8d9;
+  background: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #444;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.category-btn:hover {
+  border-color: #3a8d0d;
+  color: #3a8d0d;
+  background: #f0f8ec;
+}
+
+.category-btn.active {
+  background: linear-gradient(135deg, #3a8d0d, #6dbf1c);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(58, 141, 13, 0.3);
+}
+
+
+/* ============================================================
+   MENU GRID & CARDS
+   ============================================================ */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Card */
+.menu-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e8f0e4;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  animation: fadeUp 0.5s ease-out both;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(15, 61, 46, 0.14);
+}
+
+/* staggered animation */
+.menu-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.menu-card:nth-child(2) {
+  animation-delay: 0.10s;
+}
+
+.menu-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.menu-card:nth-child(4) {
+  animation-delay: 0.20s;
+}
+
+.menu-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.menu-card:nth-child(6) {
+  animation-delay: 0.30s;
+}
+
+.menu-card:nth-child(7) {
+  animation-delay: 0.35s;
+}
+
+.menu-card:nth-child(8) {
+  animation-delay: 0.40s;
+}
+
+.menu-card:nth-child(9) {
+  animation-delay: 0.45s;
+}
+
+.menu-card:nth-child(10) {
+  animation-delay: 0.50s;
+}
+
+.menu-card:nth-child(11) {
+  animation-delay: 0.55s;
+}
+
+.menu-card:nth-child(12) {
+  animation-delay: 0.60s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Card Image ---- */
+.menu-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  /* fills frame, no distortion */
+  object-position: center;
+  display: block;
+  background: #e8f0e4;
+  transition: transform 0.4s ease;
+}
+
+.menu-card:hover img {
+  transform: scale(1.06);
+}
+
+/* ---- Card Content ---- */
+.card-content {
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+}
+
+.card-content h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f3d2e;
+  line-height: 1.35;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* tag colors — clean, muted */
+.tag.spicy {
+  background: #fff0ee;
+  color: #c0392b;
+}
+
+.tag.healthy {
+  background: #edf7ed;
+  color: #2e7d32;
+}
+
+.tag.cheesy {
+  background: #fff8ec;
+  color: #d4890a;
+}
+
+.tag.crispy {
+  background: #f5eeff;
+  color: #7b2fbe;
+}
+
+.tag.bestselling {
+  background: #fffbe6;
+  color: #c97d08;
+}
+
+.tag.creamy {
+  background: #fce8f3;
+  color: #b5236e;
+}
+
+.tag.sweet {
+  background: #e8f4fd;
+  color: #1565c0;
+}
+
+.tag.cold {
+  background: #e2f7f6;
+  color: #00796b;
+}
+
+.tag.hot {
+  background: #ffeeee;
+  color: #c0392b;
+}
+
+.tag.refreshing {
+  background: #f0fbe8;
+  color: #558b2f;
+}
+
+.tag.traditional {
+  background: #fdfbe7;
+  color: #7d6608;
+}
+
+/* Rating row */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.stars i {
+  font-size: 11px;
+  color: #f5a623;
+}
+
+.rating-number {
+  font-size: 12.5px;
+  color: #777;
+  font-weight: 500;
+}
+
+/* Price + Button row */
+.price-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  gap: 10px;
+}
+
+/* Price — keep as .price for existing markup */
+.price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f3d2e;
+  flex-shrink: 0;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #3a8d0d, #6dbf1c);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.add-to-cart-btn:hover {
+  background: linear-gradient(135deg, #2e710b, #5aa315);
+  box-shadow: 0 6px 18px rgba(58, 141, 13, 0.32);
+  transform: translateY(-1px);
+}
+
+.add-to-cart-btn:active {
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .menu-hero {
+    padding: 50px 6% 35px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* ---- Tablet (≤768px) ---- */
+@media (max-width: 768px) {
+  .menu-hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 95px 5% 25px;
+    /* enough top padding to clear the fixed navbar, tight bottom */
+    min-height: auto;
+    gap: 18px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+  }
+
+  /* Make image block banner-style so it doesn't take up the whole screen */
+  .hero-image-wrapper {
+    width: 90vw;
+    max-width: 400px;
+  }
+
+  .hero-image {
+    height: 160px;
+    border-radius: 12px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .hero-btn {
+    padding: 10px 20px;
+    font-size: 12.5px;
+  }
+
+  .menu-page {
+    padding: 20px 4% 50px;
+  }
+
+  /* Compact header: title left, cart right in same row */
+  .menu-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .menu-header .title {
+    font-size: 1.35rem;
+    text-align: left;
+    flex: 1;
+    margin: 0;
+  }
+
+  .menu-header .title::after {
+    margin: 6px 0 0;
+  }
+
+  .menu-controls {
+    flex-shrink: 0;
+  }
+
+  /* Search bar full-width on its own row */
+  .search-bar {
+    width: 100%;
+    order: 3;
+    flex-shrink: 0;
+  }
+
+  /* Put search below header by wrapping */
+  .menu-header {
+    flex-wrap: wrap;
+  }
+
+  .menu-header .title {
+    order: 1;
+  }
+
+  .menu-controls {
+    order: 2;
+  }
+
+  .search-bar {
+    order: 3;
+    width: 100%;
+  }
+
+  /* Scrollable single-line category pills — no wrap */
+  .categories {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    /* overrides global center so left items aren't pushed out of bounds */
+    overflow-x: auto;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 4px 20px 10px 20px;
+    /* 20px padding requested by user */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .categories::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-btn {
+    padding: 8px 18px;
+    font-size: 12.5px;
+    flex-shrink: 0;
+    /* prevent pills from squishing */
+    white-space: nowrap;
+  }
+
+  /* 2-column grid for tablets */
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  /* Card layout — centered text */
+  .menu-card {
+    border-radius: 14px;
+  }
+
+  .menu-card img {
+    height: 155px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 12px 12px 14px;
+    gap: 7px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-content h3 {
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .tags {
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .tag {
+    padding: 2px 8px;
+    font-size: 9.5px;
+  }
+
+  .rating {
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .stars i {
+    font-size: 10px;
+  }
+
+  .rating-number {
+    font-size: 11.5px;
+  }
+
+  /* Stack price on top, button full-width below */
+  .price-action {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .price {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .add-to-cart-btn {
+    width: 100%;
+    font-size: 12px;
+    padding: 9px 12px;
+    text-align: center;
+  }
+}
+
+/* ---- Mobile (≤480px) ---- */
+@media (max-width: 480px) {
+  .menu-page {
+    padding: 22px 3% 40px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .menu-card img {
+    height: 130px;
+  }
+
+  .card-content {
+    padding: 10px 10px 12px;
+    gap: 6px;
+  }
+
+  .card-content h3 {
+    font-size: 12.5px;
+  }
+
+  .price {
+    font-size: 14.5px;
+  }
+
+  .add-to-cart-btn {
+    font-size: 11px;
+    padding: 8px 10px;
+  }
+
+  .category-btn {
+    padding: 7px 12px;
+    font-size: 11.5px;
+  }
+
+  .hero-title {
+    font-size: 1.4rem;
+  }
+
+  .hero-image-wrapper {
+    width: 92vw;
+  }
+
+  .hero-image {
+    height: 140px;
+  }
+}
+
+/* ---- Very small (≤360px) — single column ---- */
+@media (max-width: 360px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .menu-card img {
+    height: 190px;
+  }
+
+  .card-content {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .tags {
+    justify-content: flex-start;
+  }
+
+  .rating {
+    justify-content: flex-start;
+  }
+
+  .price-action {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+}
