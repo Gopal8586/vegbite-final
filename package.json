@@ -1,10 +1,10 @@
 {
   "name": "server-for-vegbites!!",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/vegbites.js",
   "scripts": {
-    "start": "node src/VegBites.js",
-    "dev": "nodemon src/VegBites.js -e js,hbs",
+    "start": "node src/vegbites.js",
+    "dev": "nodemon src/vegbites.js -e js,hbs",
     "build": "node build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

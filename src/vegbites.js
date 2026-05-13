@@ -387,6 +387,12 @@ app.get('/api/auth-status', (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port} 🚀`);
-});
+// Export for Vercel serverless — Vercel manages the port itself.
+// When running locally (npm start / npm run dev), fall back to app.listen().
+if (process.env.VERCEL) {
+  module.exports = app;
+} else {
+  app.listen(port, () => {
+    console.log(`Server running on port ${port} 🚀`);
+  });
+}

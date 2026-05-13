@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/vegbites.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["public/**", "templates/**"]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/vegbites.js"
+    }
+  ]
+}
