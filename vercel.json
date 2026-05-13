@@ -5,14 +5,14 @@
       "src": "src/vegbites.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["public/**", "templates/**"]
+        "includeFiles": ["templates/**"]
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "src/vegbites.js"
+      "source": "/(.*)",
+      "destination": "/src/vegbites.js"
     }
   ]
 }
